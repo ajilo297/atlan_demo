@@ -21,6 +21,7 @@ class BaseViewModel extends ChangeNotifier {
   bool get isDisposed => this._isDisposed;
 
   set busy(bool busy) {
+    log.i('busy: ${this.runtimeType.toString()} is entering ${busy ? 'busy' : 'free'} state');
     this._busy = busy;
     notifyListeners();
   }

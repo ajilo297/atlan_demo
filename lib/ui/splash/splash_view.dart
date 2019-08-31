@@ -1,14 +1,21 @@
 import 'package:atlan_demo/core/base/base_view.dart';
 import 'package:atlan_demo/ui/splash/splash_view_model.dart';
+import 'package:atlan_demo/widgets/custom_scaffold.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SplashViewModel viewModel = SplashViewModel();
+    SplashViewModel viewModel = SplashViewModel(
+      formService: Provider.of(context),
+    );
     return BaseView<SplashViewModel>(
       viewModel: viewModel,
+      onModelReady: (viewModel) {
+        viewModel.initializeSurveyForm();
+      },
       builder: (context, viewModel, _) {
         return _getView(context, viewModel);
       },
@@ -16,24 +23,31 @@ class SplashView extends StatelessWidget {
   }
 
   Widget _getView(BuildContext context, SplashViewModel viewModel) {
-    return Scaffold(
+    return CustomScaffold(
+      isLoading: viewModel.busy,
       backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SvgPicture.asset(
-              'assets/atlan.svg',
-              color: Colors.white,
+            Text(
+              'Game Center'.toUpperCase(),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 32,
+                fontWeight: FontWeight.w300,
+                letterSpacing: 2,
+                wordSpacing: 1,
+              ),
             ),
             SizedBox(height: 12),
             Text(
               'Visitor Survey',
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  letterSpacing: 4,
-                  wordSpacing: 2),
+                color: Colors.white.withAlpha(100),
+                fontWeight: FontWeight.w800,
+                fontSize: 20,
+              ),
             ),
           ],
         ),
