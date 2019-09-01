@@ -25,7 +25,7 @@ List<SingleChildCloneableWidget> _dependentProviders = [
 ];
 
 List<SingleChildCloneableWidget> _consumableProviders = [
-  StreamProvider<ResponseModel>(
+  StreamProvider<ResponseModel<Map<String, dynamic>>>(
     builder: (context) {
       return Provider.of<FormService>(
         context,

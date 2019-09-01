@@ -9,6 +9,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SplashViewModel viewModel = SplashViewModel(
+      context,
       formService: Provider.of(context),
     );
     return BaseView<SplashViewModel>(

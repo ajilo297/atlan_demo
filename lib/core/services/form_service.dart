@@ -13,8 +13,8 @@ class FormService extends BaseService {
   }) : this._apiService = apiService;
 
   // ignore: close_sinks
-  StreamController<ResponseModel> _formStreamController =
-      StreamController<ResponseModel>.broadcast();
+  StreamController<ResponseModel<Map<String, dynamic>>> _formStreamController =
+      StreamController<ResponseModel<Map<String, dynamic>>>.broadcast();
 
   Future loadFormData() async {
     log.i('loadFormData');
@@ -22,5 +22,7 @@ class FormService extends BaseService {
     _formStreamController.add(responseModel);
   }
 
-  Stream<ResponseModel> get formResponse => _formStreamController.stream;
+  Stream<ResponseModel<Map<String, dynamic>>> get formResponse {
+    return _formStreamController.stream;
+  }
 }
