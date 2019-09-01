@@ -8,7 +8,6 @@ class SplashViewModel extends BaseViewModel {
   final BuildContext context;
 
   FormService _formService;
-  bool _shouldNavigateToNextScreen = false;
 
   SplashViewModel(
     this.context, {

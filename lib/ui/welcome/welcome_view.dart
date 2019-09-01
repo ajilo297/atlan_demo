@@ -12,8 +12,6 @@ class WelcomeView extends StatelessWidget {
     ResponseModel<Map<String, dynamic>> map =
         Provider.of<ResponseModel<Map<String, dynamic>>>(context);
 
-    print(map.status.toString());
-
     return BaseView<WelcomeViewModel>(
       viewModel: viewModel,
       builder: (context, viewModel, _) {

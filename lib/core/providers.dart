@@ -17,9 +17,12 @@ List<SingleChildCloneableWidget> _independentProviders = [
 ];
 
 List<SingleChildCloneableWidget> _dependentProviders = [
-  ProxyProvider<ApiService, FormService>(
-    builder: (context, apiService, formService) {
-      return FormService(apiService: apiService);
+  ProxyProvider2<ApiService, PreferenceService, FormService>(
+    builder: (context, apiService, preferenceService, formService) {
+      return FormService(
+        apiService: apiService,
+        preferenceService: preferenceService,
+      );
     },
   )
 ];
