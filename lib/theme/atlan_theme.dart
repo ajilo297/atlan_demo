@@ -5,7 +5,12 @@ class AtlanTheme {
     return ThemeData(
       primarySwatch: Colors.indigo,
       accentColor: Colors.pinkAccent,
-      fontFamily: 'NunitoSans'
+      fontFamily: 'NunitoSans',
+      buttonTheme: ButtonThemeData(
+        shape: StadiumBorder(),
+        buttonColor: Colors.pinkAccent,
+        highlightColor: Colors.indigo
+      )
     );
   }
 }

@@ -16,6 +16,9 @@ dependencies:
   sqflite: ^1.1.6+3
   provider: ^3.0.0+1
   flutter_svg: ^0.14.0
+  flutter_rating_bar: ^2.0.0+2
+  grouped_buttons: ^1.0.4
+  uuid: ^2.0.1
 
 dev_dependencies:
   flutter_test:

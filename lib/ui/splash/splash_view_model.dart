@@ -1,8 +1,11 @@
 import 'package:atlan_demo/core/base/base_view_model.dart';
+import 'package:atlan_demo/core/models/response_model.dart';
 import 'package:atlan_demo/core/services/api_service.dart';
 import 'package:atlan_demo/core/services/form_service.dart';
+import 'package:atlan_demo/ui/survey/survey_view.dart';
 import 'package:atlan_demo/ui/welcome/welcome_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SplashViewModel extends BaseViewModel {
   final BuildContext context;
@@ -24,8 +27,13 @@ class SplashViewModel extends BaseViewModel {
 
   void navigateToNextScreen() {
     log.i('navigateToNextScreen');
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-      return WelcomeView();
-    }));
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return SurveyView();
+        },
+      ),
+    );
   }
 }

@@ -29,7 +29,7 @@ class CustomScaffold extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: Stack(
         children: <Widget>[
-          body,
+          body ?? Container(),
           if (isLoading)
             Positioned(
               bottom: 0,
